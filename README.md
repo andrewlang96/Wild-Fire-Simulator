@@ -12,4 +12,5 @@ This program is a command line application that displays ascii graphics to repre
 - "tf" This command displays a truncated version of a data frame that contains all the trees in the simulated forest and their associated parameters.
 - "?" This command will display a list of valid commands.
 
+#### Program Execution
 To run this program simply run the file ***forest.py*** in the terminal window and then hold down the **Enter** key to allow the simulation to progress.
