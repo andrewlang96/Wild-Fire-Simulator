@@ -135,13 +135,13 @@ class Forest:
                     plot.dead_fall = 0
 
 
-    def display_forest(self):
+    def display_forest(self): #Take list of trees and print their associated sprites to the terminal window
         for i in range(self.height):
             row = "".join([tree.sprite if tree != None else "  " for tree in self.forest[i*self.width:(i+1)*self.width]])
             print(row)
 
 
-    def get_tree_df(self):
+    def get_tree_df(self): #Generate pandas df of existing trees in the forest and their specs
         trees = [tree for tree in self.forest if tree != None]
         tree_specs = {"tree": [tree for tree in trees],
                       "height": [tree.get_size() for tree in trees],
@@ -153,7 +153,7 @@ class Forest:
         return tree_df
 
 
-    def clear(self):
+    def clear(self): #Clear terminal window
         if platform.system() == "Windows":
             os.system("cls")
         else:
@@ -163,36 +163,35 @@ class Forest:
 
 def main():
     f = Forest(50, 50, fire_rate=0.00003, tree_rate=0.01)
-    sleep_time = 0.05
-    valid_commands = {"q": "End simulation",
+    sleep_time = 0.05 #Delay time between each fram of the simulation
+    valid_commands = {"q": "End simulation", #Valid commands and their associated function
                       "": "Continue Simulation",
                       "fr": "Change fire rate",
                       "tf": "Display tree data frame",
                       "?": "display valid commands"}
     while True:
-        command = input("> ")
-        if command == "":
+        command = input("> ") #Prompt user for input
+        if command == "": #Continue itterating the simulation
             f.clear()
             f.update_forest()
             f.display_forest()
             sleep(sleep_time)
-        elif command == "fr":
+        elif command == "fr": #Display current fire rate and prompt user to enter a new rate
             print(f"The current fire rate is {f.fire_rate}")
             try:
                 f.fire_rate = float(input("Enter the new fire rate: "))
-            except ValueError:
+            except ValueError: #If the input cant be converted to float then nothing happens
                 pass
-        elif command == "q":
+        elif command == "q": #End the simulation
             heights = [i.get_size() for i in f.forest if i != None]
             break
-        elif command == "tf":
+        elif command == "tf": #Display truncated tree data frame
             print(f.get_tree_df())
-        elif command == "?":
+        elif command == "?": #Display valid commands and their associated functions
             for command in valid_commands:
                 print(f"{command}: {valid_commands[command]}")
 
 
-    
 
 if __name__ == "__main__":
     main()
