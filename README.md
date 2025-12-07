@@ -1,6 +1,6 @@
 # Wiled Fire Simulator 
 
-This project is intended to help visually explore how wild fires may be simulated using a number of parameters that govern the spread of fire, such as tree growth rate, potential energy density of fuel, and dead-fall accumulation. While the values assigned to these parameters are not based on any real world data, the user is able to change the values of these parameters and observe the resultant changes in the simulation. I'm interested in bringing the simulation into alignment with experimentally observed phenomena by tuning these values. In doing so I hope to better understand what variables are critical for simulating and predicting the behavior of these systems. 
+This project is intended to help visually explore how wild fires may be simulated using a number of parameters that govern the spread of fire, such as tree growth rate, potential energy density of fuel, and dead-fall accumulation. The user is able to change the values of some of these parameters and observe the resultant changes in the simulation. I'm interested in bringing the simulation into alignment with experimentally observed phenomena by tuning these values and in doing so I hope to better understand what variables are critical for simulating and predicting the behavior of these systems. 
 
 ![Simulation Demo](demo.gif)
 #### Features
